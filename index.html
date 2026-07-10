@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is Lola Lost… & Found?</title>
+    <style>
+        /* Imported heavier weights for much thicker text */
+        @import url('https://fonts.googleapis.com/css2?family=Mali:wght@600;700;800&display=swap');
+
+        body { 
+            font-family: 'Mali', 'Chalkboard SE', 'Comic Sans MS', sans-serif; 
+            font-weight: 600; 
+            text-align: center; 
+            margin: 0;
+            padding: 40px 20px 20px 20px; 
+            
+            /* Background Image Setup */
+            background-image: url('lola-bg.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            
+            /* Text Settings */
+            color: #ffffff; 
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.9); 
+            
+            /* Layout */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 90vh;
+            box-sizing: border-box;
+        }
+        
+        /* Sky Section */
+        .top-section {
+            margin-top: 5vh; 
+        }
+        
+        h1 { 
+            font-size: 40px; 
+            font-weight: 800; /* Extra bold */
+            color: #FFB6C1; 
+            -webkit-text-stroke: 1.5px #000000; 
+            text-shadow: 4px 4px 10px rgba(0,0,0,0.9); 
+            margin-bottom: 5px; 
+            line-height: 1.2;
+        }
+
+        /* Ground Section */
+        .bottom-section {
+            margin-bottom: 2vh; 
+            padding: 0 10px;
+        }
+        
+        .btn-call { 
+            display: inline-block; 
+            width: 100%; 
+            max-width: 320px; 
+            margin: 0 auto 15px auto; 
+            padding: 16px; 
+            font-size: 24px; /* Slightly larger */
+            font-weight: 800; /* Extra bold */
+            color: white; 
+            background-color: #4CAF50; 
+            text-decoration: none; 
+            border-radius: 14px; 
+            border: none; 
+            cursor: pointer; 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
+            -webkit-text-stroke: 1px #000000; 
+        }
+
+        .share-title {
+            font-size: 26px; /* Made larger */
+            font-weight: 800; /* Extra bold */
+            margin-bottom: 15px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            -webkit-text-stroke: 1px #000000; 
+        }
+        
+        .share-title svg {
+            width: 35px;
+            height: 35px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .map-buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .map-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-family: inherit; 
+            font-size: 19px; /* Made larger */
+            font-weight: 800; /* Extra bold */
+            cursor: pointer;
+            text-shadow: 3px 3px 6px rgba(0,0,0,1); /* Stronger shadow behind the letters */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            -webkit-text-stroke: 0.5px #000000; /* Thinned the outline so the white stays visible */
+        }
+
+        .map-btn svg {
+            width: 65px;
+            height: 65px;
+            border-radius: 16px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+        }
+
+        #status { 
+            margin-top: 15px; 
+            font-size: 16px; 
+            font-weight: 800;
+            color: #ffb3b3; 
+            -webkit-text-stroke: 0.5px #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-section">
+        <h1>Is Lola Lost… & Found?</h1>
+    </div>
+
+    <div class="bottom-section">
+        <!-- Call Button -->
+        <a href="tel:4157861331" class="btn-call">📱 Call Lola's Owner</a>
+
+        <!-- Share Section -->
+        <div class="share-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#007BB5"/>
+                <path d="M 20 40 Q 30 20 50 25 T 60 10 A 45 45 0 0 0 15 30 Z" fill="#78B833"/>
+                <path d="M 85 45 Q 70 40 65 60 T 80 80 A 45 45 0 0 0 90 55 Z" fill="#78B833"/>
+                <path d="M 30 75 Q 45 60 55 85 A 45 45 0 0 0 40 90 Z" fill="#78B833"/>
+                <path d="M 50 30 C 38 30 30 40 30 52 C 30 68 50 90 50 90 C 50 90 70 68 70 52 C 70 40 62 30 50 30 Z" fill="#E63946"/>
+                <circle cx="50" cy="52" r="10" fill="#FFFFFF"/>
+            </svg>
+            <span>Share Lola's location</span>
+        </div>
+
+        <div class="map-buttons-container">
+            <button id="googleGpsBtn" class="map-btn">
+                <!-- Built-in Google Maps SVG -->
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="22" fill="#FFFFFF"/>
+                    <line x1="20" y1="0" x2="20" y2="100" stroke="#F1F3F4" stroke-width="2"/>
+                    <line x1="80" y1="0" x2="80" y2="100" stroke="#F1F3F4" stroke-width="2"/>
+                    <line x1="0" y1="50" x2="100" y2="50" stroke="#F1F3F4" stroke-width="2"/>
+                    <path d="M50 85 C50 85 25 60 25 35 A25 25 0 0 1 75 35 C75 60 50 85 50 85 Z" fill="#EA4335"/>
+                    <circle cx="50" cy="35" r="10" fill="#FFFFFF"/>
+                    <path d="M50 85 C50 85 75 60 75 35 A25 25 0 0 0 50 10 Z" fill="#D32F2F" opacity="0.2"/>
+                </svg>
+                via Google Maps
+            </button>
+            <button id="appleGpsBtn" class="map-btn">
+                <!-- Built-in Apple Maps SVG -->
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="22" fill="#E6DFD4"/>
+                    <path d="M 0 0 L 30 0 L 15 30 Z" fill="#C3E6CB"/>
+                    <line x1="-10" y1="65" x2="110" y2="35" stroke="#F5C04F" stroke-width="12"/>
+                    <line x1="25" y1="110" x2="65" y2="-10" stroke="#FFFFFF" stroke-width="14"/>
+                    <path d="M 15 100 L 45 50 L 80 40" fill="none" stroke="#2374E1" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polygon points="80,22 65,42 80,37 95,42" fill="rgba(0,0,0,0.2)"/>
+                    <polygon points="80,20 65,40 80,35 95,40" fill="#FFFFFF"/>
+                </svg>
+                via Apple Maps
+            </button>
+        </div>
+        
+        <p id="status"></p>
+    </div>
+
+    <script>
+        const phoneNumber = "+14157861331";
+        const statusText = document.getElementById('status');
+
+        function shareLocation(mapType) {
+            if (!navigator.geolocation) {
+                statusText.textContent = "Your browser does not support location sharing.";
+                return;
+            }
+
+            statusText.textContent = "Getting location... please click 'Allow' if prompted.";
+
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    
+                    let mapLink = "";
+                    if (mapType === 'google') {
+                        mapLink = `https://www.google.com/maps?q=${lat},${lng}`;
+                    } else if (mapType === 'apple') {
+                        mapLink = `https://maps.apple.com/?q=${lat},${lng}`;
+                    }
+                    
+                    const message = encodeURIComponent(`Found Lola! Here is my location: ${mapLink}`);
+
+                    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                    const separator = isIOS ? '&' : '?';
+
+                    window.location.href = `sms:${phoneNumber}${separator}body=${message}`;
+                    statusText.textContent = "Opening your messages app...";
+                },
+                (error) => {
+                    if (error.code === error.PERMISSION_DENIED) {
+                        statusText.textContent = "Location access was denied. Please allow location access in your phone settings or use the Call button.";
+                    } else {
+                        statusText.textContent = "Unable to get location right now. Please use the Call button instead.";
+                    }
+                }
+            );
+        }
+
+        document.getElementById('googleGpsBtn').addEventListener('click', () => shareLocation('google'));
+        document.getElementById('appleGpsBtn').addEventListener('click', () => shareLocation('apple'));
+    </script>
+</body>
+</html>
